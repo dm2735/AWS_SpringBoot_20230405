@@ -10,4 +10,14 @@ public class UserPageController {
 	public String addUser() {
 		return "AddUser";
 	}
+	
+	@GetMapping("/page/user/search")
+	public String getUser() {
+		return "FindUser";
+	}
+	
+	@GetMapping("/page/users")
+	public String getusers() {
+		return "userList";
+	}
 }
