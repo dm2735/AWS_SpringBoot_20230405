@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script type="http://code.jquery.com/jquery-latest.min.js"></script> 
+	</head>
+	<body>
+	
+		<div>
+			<input class="username">
+		</div>
+		<div>
+			<input class="password">
+		</div>
+		<div>
+			<input class="name">
+		</div>
+		<div>
+			<input class="email">
+		</div>
+		<button type ="button" class="send-button">등록</button>
+		
+		<script>
+			window.onload = () => {
+				addSendButtonEvent();
+			}
+			function addSendButtonEvent(){
+				const sendButton = document.querySelector(".send-button");
+				sendButton.onClick = () =>{
+					send();
+				}
+			}	
+		
+			function send(){
+				const username = document.querySelector(".username").value;
+				const password = document.querySelector(".password").value;
+				const name = document.querySelector(".name").value;
+				const email = document.querySelector(".email").value;
+				
+				console.log(username);
+				console.log(password);
+				console.log(name);
+				console.log(email);
+			}
+		</script>
+		
+	</body>
+</html>

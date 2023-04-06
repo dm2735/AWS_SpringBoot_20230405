@@ -22,6 +22,7 @@ public class BasicController {
 	@GetMapping("/view/test")
 	
 	public ResponseEntity< ? extends ResponseDto> view() {
+		
 		List<String> strList = new ArrayList<>();
 		strList.add("a");
 		strList.add("b");
