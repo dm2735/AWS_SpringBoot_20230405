@@ -8,6 +8,7 @@ import java.util.Map;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StopWatch;
 
+import com.web.study.aop.annotation.ReturnDataAspect;
 import com.web.study.domain.entity.Course;
 import com.web.study.dto.request.course.CourseReqDto;
 import com.web.study.dto.response.CourseRespDto;
@@ -25,34 +26,25 @@ public class CourseServiceImpl implements CourseService{
 	
 	@Override
 	public void registLectureRegist(CourseReqDto courseReqDto) {
-		StopWatch stopWatch = new StopWatch();
-		stopWatch.start();
-		
-		
+
 		Course lectureRegist = courseReqDto.toEntity();
 		courseRepository.courseSave(lectureRegist);
-		
-		stopWatch.stop();
-		System.out.println("메소드실행시간:" + stopWatch.getTotalTimeSeconds() + "초");
-		
+
 	}
 	@Override
 	public List<CourseRespDto> getCourseAll() {
-		StopWatch stopWatch = new StopWatch();
-		stopWatch.start();
-		
+
 		List<CourseRespDto> dtos = new ArrayList<>();
 		courseRepository.getCourseAll().forEach(entity->{
 			dtos.add(entity.toDto());
 		});;
-		stopWatch.stop();
-		System.out.println("메소드실행시간:" + stopWatch.getTotalTimeSeconds() + "초");
 		
 		return dtos;
 	}
 	
+	@ReturnDataAspect
 	@Override
-	public List<CourseRespDto> searhCourse(int type, String searchValue) {
+	public List<CourseRespDto> searchCourse(int type, String searchValue) {
 		Map<String, Object> parameterMap = new HashMap<>();
 		parameterMap.put("type", type);
 		parameterMap.put("searchValue", searchValue);

@@ -9,6 +9,6 @@ public interface CourseService {
 	
 	public void registLectureRegist(CourseReqDto lectureRegistReqDto);
 	public List<CourseRespDto> getCourseAll();
-	public List<CourseRespDto> searhCourse(int type, String searchValue);
+	public List<CourseRespDto> searchCourse(int type, String searchValue);
 
 }
