@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.web.study.repository.LectureRepository">
+
+	<insert id="regist" parameterType="com.web.study.domain.entity.Lecture">
+		insert into lecture_mst 
+		values(0, #{lecture_name}, #{lecture_price}, #{lecturer_id})
+	</insert>
+	
+	<insert id="regist2" parameterType="com.web.study.domain.entity.Lecturer">
+		insert into lecturer_mst
+		value(0, #{name}, #{birth_date})
+	</insert>
+	
+	<insert id="regist3" parameterType="com.web.study.domain.entity.Student">
+		insert into student_mst
+		value(0, #{name}, #{birth_date})
+	</insert>
+	
+	<insert id="regist4" parameterType="com.web.study.domain.entity.LectureRegist">
+		insert into lecture_regist_mst
+		value(0, #{lecture_id}, #{student_id}, #{regist_date})
+	</insert>	
+</mapper>

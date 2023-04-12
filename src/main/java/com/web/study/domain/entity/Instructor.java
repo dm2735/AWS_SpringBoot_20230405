@@ -2,8 +2,29 @@ package com.web.study.domain.entity;
 
 import java.time.LocalDate;
 
-public class Lecturer {
-	private int id;
-	private String name;
-	private LocalDate birth_date;
+import com.web.study.dto.response.InstructorRespDto;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
+@Builder
+@Getter
+@ToString
+@NoArgsConstructor
+@AllArgsConstructor
+public class Instructor {
+	private int itm_id;
+	private String itm_name;
+	private LocalDate itm_birth;
+	
+	public InstructorRespDto toDto() {
+		return InstructorRespDto.builder()
+				.id(itm_id)
+				.name(itm_name)
+				.birthDate(itm_birth)
+				.build();
+	}
 }
