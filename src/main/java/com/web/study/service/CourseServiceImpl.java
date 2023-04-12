@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.stereotype.Service;
+import org.springframework.util.StopWatch;
 
 import com.web.study.domain.entity.Course;
 import com.web.study.dto.request.course.CourseReqDto;
@@ -24,18 +25,28 @@ public class CourseServiceImpl implements CourseService{
 	
 	@Override
 	public void registLectureRegist(CourseReqDto courseReqDto) {
+		StopWatch stopWatch = new StopWatch();
+		stopWatch.start();
+		
 		
 		Course lectureRegist = courseReqDto.toEntity();
 		courseRepository.courseSave(lectureRegist);
 		
+		stopWatch.stop();
+		System.out.println("메소드실행시간:" + stopWatch.getTotalTimeSeconds() + "초");
 		
 	}
 	@Override
 	public List<CourseRespDto> getCourseAll() {
+		StopWatch stopWatch = new StopWatch();
+		stopWatch.start();
+		
 		List<CourseRespDto> dtos = new ArrayList<>();
 		courseRepository.getCourseAll().forEach(entity->{
 			dtos.add(entity.toDto());
 		});;
+		stopWatch.stop();
+		System.out.println("메소드실행시간:" + stopWatch.getTotalTimeSeconds() + "초");
 		
 		return dtos;
 	}
