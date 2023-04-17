@@ -46,9 +46,6 @@ public class CourseController {
 	@GetMapping("/courses")
 	public ResponseEntity<? extends ResponseDto> getCourseAll(){
 		
-		if(1==1) {
-			throw new CustomException("예외 만들기");
-		}
 		
 		return ResponseEntity.ok().body(DataResponseDto.of(DataResponseDto.of(courseService.getCourseAll())));
 	}
